@@ -1,16 +1,14 @@
 <?php
-// Host: ec2-54-87-112-29.compute-1.amazonaws.com
-// Database: d4s4tq503f7655
-// User: wbdomoqgkqfegd
-// Password: 99b8d5758a4a108a264265f9b5d9911b23e524155bb079aab3c42a6d72fb2deb
+$hostname_dbmovieshop = "localhost";
+/*$database_dbmovieshop = "livvvvvi_practice";
+$username_dbmovieshop = "livvvvvi_how";
+$password_dbmovieshop = "@Practice2019";*/
 
-$url      = parse_url(getenv("DATABASE_URL"));
-$server   = $url["ec2-54-87-112-29.compute-1.amazonaws.com"];
-$username = $url["wbdomoqgkqfegd"];
-$password = $url["99b8d5758a4a108a264265f9b5d9911b23e524155bb079aab3c42a6d72fb2deb"];
-$db       = substr($url["d4s4tq503f7655"],1);
+$database_dbmovieshop = "movieshop";
+$username_dbmovieshop = "root";
+$password_dbmovieshop = "";
 
-$dbconn_movieshop = mysqli_connect($server, $username, $password); 
+$dbconn_movieshop = mysqli_connect($hostname_dbmovieshop, $username_dbmovieshop, $password_dbmovieshop); 
 mysqli_query($dbconn_movieshop, "SET NAMES 'UTF8'");
 
 if (!$dbconn_movieshop) {
@@ -18,7 +16,7 @@ if (!$dbconn_movieshop) {
 	exit();
 }
 else{
-	mysqli_select_db($dbconn_movieshop, $db);
+	mysqli_select_db($dbconn_movieshop, $database_dbmovieshop);
 	//echo "資料庫連線成功";
 }
 ?>
