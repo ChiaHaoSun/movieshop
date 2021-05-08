@@ -1,14 +1,11 @@
 <?php
-$hostname_dbmovieshop = "localhost";
-/*$database_dbmovieshop = "livvvvvi_practice";
-$username_dbmovieshop = "livvvvvi_how";
-$password_dbmovieshop = "@Practice2019";*/
+$url      = parse_url(getenv("DATABASE_URL"));
+$server   = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db       = substr($url["path"],1);
 
-$database_dbmovieshop = "movieshop";
-$username_dbmovieshop = "root";
-$password_dbmovieshop = "";
-
-$dbconn_movieshop = mysqli_connect($hostname_dbmovieshop, $username_dbmovieshop, $password_dbmovieshop); 
+$dbconn_movieshop = mysqli_connect($server, $username, $password); 
 mysqli_query($dbconn_movieshop, "SET NAMES 'UTF8'");
 
 if (!$dbconn_movieshop) {
@@ -16,7 +13,7 @@ if (!$dbconn_movieshop) {
 	exit();
 }
 else{
-	mysqli_select_db($dbconn_movieshop, $database_dbmovieshop);
+	mysqli_select_db($dbconn_movieshop, $db);
 	//echo "資料庫連線成功";
 }
 ?>
