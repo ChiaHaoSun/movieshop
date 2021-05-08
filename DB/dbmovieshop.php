@@ -1,9 +1,14 @@
 <?php
+// Host: ec2-54-87-112-29.compute-1.amazonaws.com
+// Database: d4s4tq503f7655
+// User: wbdomoqgkqfegd
+// Password: 99b8d5758a4a108a264265f9b5d9911b23e524155bb079aab3c42a6d72fb2deb
+
 $url      = parse_url(getenv("DATABASE_URL"));
-$server   = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$db       = substr($url["path"],1);
+$server   = $url["ec2-54-87-112-29.compute-1.amazonaws.com"];
+$username = $url["wbdomoqgkqfegd"];
+$password = $url["99b8d5758a4a108a264265f9b5d9911b23e524155bb079aab3c42a6d72fb2deb"];
+$db       = substr($url["d4s4tq503f7655"],1);
 
 $dbconn_movieshop = mysqli_connect($server, $username, $password); 
 mysqli_query($dbconn_movieshop, "SET NAMES 'UTF8'");
